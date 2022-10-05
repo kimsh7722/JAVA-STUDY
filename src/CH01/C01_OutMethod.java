@@ -5,12 +5,17 @@ public class C01_OutMethod {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
+		 메서드(방법,기능) : 여러코드들을 묶어서 실행,특정 기능 수행, C언의 함수개념과 유사
+		메인 메서드		: 최초 실행되는 함수 
+		라이브러리 메서드	: 미리 만들어져 제공되는 함수
+		사용자 정의 메서드: 개발자에 의해 제작되는 함수
 			Escape
 			- \n : 다음줄
 			- \t : 탭문자
 			- \\ : 역슬러쉬
 			- \' :홀따옴표
 			- \" : 쌍따옴표출력
+			- \b : 백스페이스 (C언어)
 		*/
 		
 		/*
@@ -33,6 +38,9 @@ public class C01_OutMethod {
 		System.out.printf("%d\t\t%s\t %d\t\t%s\n",1,"김광수",35,"대구 ");
 		System.out.printf("%d\t\t%s\t %d\t\t%s\n",2,"이태수",55,"울산 ");
 		System.out.printf("%d\t\t%s\t %d\t\t%s\n",3,"신성아",25,"김해 ");
+		
+//		Println 
+		
 	}
 
 }
