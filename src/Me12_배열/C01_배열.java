@@ -6,6 +6,18 @@ public class C01_배열 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		/*
+		 * 다양한 쓰이기
+		 * int arr[] = new int[]
+		 * 					배열갯수
+		 * int[] arr = new int[]
+		 * int arr[] = {{1},{2},{3}}
+		 * 				배열갯수의 요소
+		 * 2차원 배열
+		 * arr[][]={{{1,2}},{3,4}..}
+		 * 			2차원 배열 요소
+		 */
 		Scanner sc = new Scanner(System.in);
 //		길이가 5인 int형 1차원 배월의 생성
 		int[] ar1 = new int[5];	
@@ -15,7 +27,6 @@ public class C01_배열 {
 		ar1[2]=sc.nextInt();
 		ar1[3]=sc.nextInt();
 		ar1[4]=sc.nextInt();
-		ar1[5]=sc.nextInt();
 		
 		for(int i=0; i<ar1.length; i++) {
 			System.out.println("일반적인 방식으로 배열값 호출");
