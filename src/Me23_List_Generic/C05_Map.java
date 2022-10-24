@@ -1,0 +1,31 @@
+package Me23_List_Generic;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class C05_Map {
+
+	public static void main(String[] args) {
+
+		Map<String,Integer> map = new HashMap();
+		map.put("aaa",1111);
+		map.put("bbb",2222);
+		map.put("ccc",3333);
+		map.put("ddd",4444);
+		map.put("ddd",1234); // id 중복인 경우(나중 요청된 K:V 저장)
+		map.put("fff",1234); // pw 중복인 경우(문제없이 저장)
+		
+		// 개수
+		System.out.println("저장 수 : "+map.size());
+		
+		// 조회
+//		map안의 모든 key를 Set형태로 반환
+		Set<String> set = map.keySet();
+		for(String key : set) { // for문 개량화 해석 : set값을 key로 저장
+			int value = map.get(key); // map.get()을 key로 저장후 대입
+			System.out.println("Key : "+key+" VALUE : "+value);
+		}
+	}
+
+}

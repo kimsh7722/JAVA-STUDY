@@ -6,6 +6,7 @@ public class C01_1회차 {
 		// TODO Auto-generated method stub
 		int ranking = 3;
 		char medalcolor;
+		
 		switch(ranking) {
 		case 1: 
 			medalcolor='G';
