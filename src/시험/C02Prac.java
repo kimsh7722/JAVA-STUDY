@@ -1,6 +1,7 @@
 package 시험;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+//import org.mindrot.bcrypt.BCrypt;
+
 public class C02Prac {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 	
 		int num = 0;
 		//Map 만들기
@@ -38,6 +41,10 @@ public class C02Prac {
 				//단! 기존에 동일 ID가 있으면 등록불가(containsKey사용)
 				System.out.print("ID 입력 : "); id=sc.next();
 				System.out.print("PW 입력 : "); pw=sc.next();
+				// 암호화
+//				pw = BCrypt.hashpw(pw,BCrypt.gensalt());
+				// 암호화 확인
+				System.out.println("암호화된 PW : "+pw);
 				if(!map.containsKey(id)) {
 					map.put(id, pw);
 				}else {

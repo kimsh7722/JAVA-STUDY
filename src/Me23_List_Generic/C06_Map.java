@@ -35,19 +35,22 @@ public class C06_Map {
 		}
 		
 	}
-	public static void Remove(String key, Integer value) {
+	public static void Remove(Integer value) {
 		// 동일한 Value을 가지는 모든 요소를 삭제
-//		Integer result=;
-		if(result == null) {
-			System.out.println("삭제실패");
-		}else {
-			map.remove(value);
-			System.out.println("삭제성공");
+		
+		// map의 키정보를 Set을 String변환대서 넘긴다
+		Set<String> set = map.keySet();
+		for(String key : set) {
+			// Integer형 매개변수 value와 map에 가져온 키에있는 value를 대조하라
+			if(value.equals(map.get(key))) {
+				
+			}
+			
 		}
 	}
 	
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws Exception{
+		
 		map.put("aaa",1111);
 		map.put("bbb",2222);
 		map.put("ccc",3333);
@@ -66,8 +69,9 @@ public class C06_Map {
 		
 		//	개수	
 		System.out.println("저장 수 : " + map.size());
-		Remove(1234); //Value전달 삭제
+		Remove(3333); //Value전달 삭제
 		System.out.println("저장 수 : " + map.size());
+		ShowInfo();
 	}
 
 }

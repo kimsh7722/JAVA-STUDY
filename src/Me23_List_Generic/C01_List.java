@@ -5,7 +5,7 @@ import java.util.List;
 
 public class C01_List {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		List<String> list = new ArrayList();
 		
@@ -25,10 +25,10 @@ public class C01_List {
 		System.out.println("확인 IDX 2 : "+list.get(2));
 		
 //		전체 조회
-		System.out.println("------- 전체 조회1 -------");
-		for(int v=0; v <= list.size(); v++) {
-			System.out.println(list.get(v));
-		}
+//		System.out.println("------- 전체 조회1 -------");
+//		for(int v=0; v <= list.size(); v++) {
+//			System.out.println(list.get(v));
+//		}
 		System.out.println("------- 전체 조회2 -------");
 		for(String tmp : list) {
 			System.out.println(tmp);
