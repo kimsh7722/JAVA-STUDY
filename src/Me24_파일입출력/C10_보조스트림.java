@@ -1,4 +1,4 @@
-package Me25_파일입출력2;
+package Me24_파일입출력;
 // 보조스트림 사용방법
 
 // 보조스트림 변수 = new 보조스트림(연결스트림)
@@ -12,7 +12,7 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 
-public class C01_보조스트림 {
+public class C10_보조스트림 {
 	public static void main(String[] args) throws Exception {
 		String str = "문자 변환 스트림 사용";
 		FileOutputStream fos = new FileOutputStream("C:/Temp/test1.txt");

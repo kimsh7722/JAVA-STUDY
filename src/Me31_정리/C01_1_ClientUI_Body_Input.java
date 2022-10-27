@@ -1,4 +1,4 @@
-package Me27_JAVA_GUI;
+package Me31_정리;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 // 키보드 이벤트 활성화
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.DataOutputStream;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,17 +21,19 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-class C06GUI extends JFrame implements ActionListener,KeyListener{
+class ClientUI extends JFrame implements ActionListener,KeyListener{
 	
 	// 전역변수
 	JTextArea area; JPanel panel;
 	JScrollPane scroll; JTextField txt1;
 	JButton btn1; JButton btn2;
-	public static JButton btn3; JButton btn4;
+	JButton btn3; JButton btn4;
 	
+	// Client 추가
+	Socket client;
 	
-	C06GUI(){
-		super("대화창입니다");
+	ClientUI(){
+		super("Client Body 입니다");
 		
 		// 필드-패널 생성
 		panel = new JPanel(); 
@@ -38,12 +42,11 @@ class C06GUI extends JFrame implements ActionListener,KeyListener{
 		// 택스트 Area 생성
 		area = new JTextArea();
 		area.setBounds(10,10,150,100);
+		area.setEditable(false);
 		
 		// 스크롤 추가
 		scroll = new JScrollPane(area);
 		scroll.setBounds(10,10,200,250);
-		
-		
 		
 		// text필드
 		txt1 = new JTextField();
@@ -73,6 +76,7 @@ class C06GUI extends JFrame implements ActionListener,KeyListener{
 		// 배격색 지정
 		Color col = new Color(250,200,180);
 		panel.setBackground(col);
+		setResizable(false); // 레이아웃삭제
 		
 		// 패널 추가
 		add(panel); panel.add(txt1);
@@ -86,6 +90,24 @@ class C06GUI extends JFrame implements ActionListener,KeyListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		// visible : 보여라
 		setVisible(true);
+		
+		
+		// 연결 요청
+		try {
+			
+			// Server 접속 요청
+			client = new Socket("192.168.3.4",5656);
+			
+			// Thread 송,수신 함수
+			C01_2_Client_Recv_Thread recv = new C01_2_Client_Recv_Thread(client,this);
+			
+			// Thread 실행 
+			Thread th1 = new Thread();
+			th1.start();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 이벤트 활성화
@@ -102,7 +124,7 @@ class C06GUI extends JFrame implements ActionListener,KeyListener{
 			System.out.println("1:1 대화창!!");
 		}else if(e.getSource() == btn3) {
 			System.out.println("파일 저장");
-//			area.append();
+
 		}
 	}
 
@@ -118,63 +140,39 @@ class C06GUI extends JFrame implements ActionListener,KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// 키를 누르고있는 상태
-		System.out.println("KetPressed : "+e.getKeyChar());
-		System.out.println("KetPressed : "+e.getKeyCode());
 		if(e.getKeyCode() == 10) {
+			
+			// 내보내기 OutputStream
+			try {
+				DataOutputStream send = new DataOutputStream(client.getOutputStream());
+				send.writeUTF(txt1.getText());
+				send.flush();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 			// 필드를 Area로 이동 
-			area.append("Client : "+txt1.getText()+"\n");
-				// └추가
+			area.append(" ] Client [ => "+txt1.getText()+"\n");
+			// └추가
 			
 			// 필드 내용은 삭제
 			txt1.setText("");
+			
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// 키를 땟을 때 상태 UNICODE 미지원
-		System.out.println("KetReleased : "+e.getKeyChar());
+//		System.out.println("KetReleased : "+e.getKeyChar());
 	}
 	
 }
 
-public class C05_Swing_Event_KeyEvent {
+public class C01_1_ClientUI_Body_Input {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		new C06GUI();
 		
-		
-		String id="root";
-		String pw="1234";
-		String url="Jdbc:mysql://localhost:3306/board";
-		
-		Connection conn=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs = null;
-		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("연결 시도 중...");
-			conn = DriverManager.getConnection(url,id,pw);
-			System.out.println("접속완료 대기중");
-			
-			pstmt = conn.prepareStatement("insert into board values(?)");
-//			pstmt.get(1, C06GUI.btn3);
-			
-			
-			rs = pstmt.executeQuery();
-			
-			int result = pstmt.executeUpdate();
-			if(result != 0) {
-				System.out.println("성공");
-			}else {
-				System.out.println("실패");
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		new ClientUI();
 		
 	}
 
