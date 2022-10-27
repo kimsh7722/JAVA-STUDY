@@ -1,4 +1,4 @@
-package Me14_Static;
+package Me14_Staic_SinggleTon;
 
 class C03Simple {
 	int n1;

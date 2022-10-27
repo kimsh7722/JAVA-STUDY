@@ -1,7 +1,6 @@
 package 시험;
 
 import java.util.ArrayList;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.Set;
 
 //import org.mindrot.bcrypt.BCrypt;
 
-public class C02Prac {
+public class C03_Prac {
 
 	public static void main(String[] args) throws Exception{
 	
@@ -97,12 +96,5 @@ public class C02Prac {
 			}
 		
 		}
-		
-		
-		
-		
-		
-		
 	}
-
 }

@@ -9,7 +9,8 @@ public class C05_OutputStream {
 		// TODO Auto-generated method stub
 		// 예외처리
 		OutputStream out = new FileOutputStream("c:\\IoText\\text.exe");
-		out.write('a'); out.write('b'); out.write('c'); out.flush();
+		out.write('a'); out.write('b'); out.write('c'); 
+		out.flush();
 	}
 
 }

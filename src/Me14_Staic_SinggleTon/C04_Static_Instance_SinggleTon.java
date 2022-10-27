@@ -1,4 +1,4 @@
-package Me14_Static;
+package Me14_Staic_SinggleTon;
 
 class C04simple {
 //	멤버 변수

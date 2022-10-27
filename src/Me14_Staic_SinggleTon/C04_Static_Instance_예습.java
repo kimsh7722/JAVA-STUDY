@@ -1,4 +1,4 @@
-package Me14_Static;
+package Me14_Staic_SinggleTon;
 
 class ShopService {
 //	자 다시 정리[싱글톤 구현]
