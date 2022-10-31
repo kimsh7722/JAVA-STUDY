@@ -24,6 +24,7 @@ public class C04_Static_Instance_SinggleTon {
 		// TODO Auto-generated method stub
 		C04simple sim = C04simple.getInstance();
 		C04simple simp = C04simple.getInstance();
+		C04simple simp2 = C04simple.getInstance();
 		System.out.println(sim == simp);
 		System.out.println("mySim : "+sim.x);
 		System.out.println("mySimP : "+simp.y);
