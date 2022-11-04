@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/EclipseDump/jsoup-1.15.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/EclipseDump/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/EclipseDump/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/과정평가형(2022하)/sqldeveloper/jdbc/lib/ojdbc8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
