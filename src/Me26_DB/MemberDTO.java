@@ -10,6 +10,7 @@ public class MemberDTO {
 		this.addr=addr;
 		this.phone=phone;
 	}
+	public MemberDTO() {}
 	public String getEmail() {
 		return email;
 	}
