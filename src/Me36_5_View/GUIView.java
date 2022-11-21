@@ -25,7 +25,7 @@ public class GUIView extends JFrame implements ActionListener{
 	private String userid = null;
 	private Integer perm = 0; // 0 비회원 , 1 회원 2 관리자(사서)
 
-	private FrontController controller = new FrontController();
+	private Me36_4_Controller.FrontController controller = new Me36_4_Controller.FrontController();
 	
 	// 액션처리 관련 멤버
 	JButton btn1;JButton btn2;JButton btn3;JButton btn4;
